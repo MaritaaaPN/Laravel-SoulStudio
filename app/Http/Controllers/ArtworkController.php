@@ -127,7 +127,6 @@ class ArtworkController extends Controller
     public function cetak()
     {
         $artwork = Artwork::all();
-        //File::cetak('img_artworks/'.$artwork->foto);
         $pdf = Pdf::loadview('artworks.artworks-cetak', compact('artwork'));
         return $pdf->download('laporan-cetak-data-artwork.pdf');
     }

@@ -41,7 +41,6 @@
     <thead>
       <tr>
         <th>No</th>
-        <th>Foto Artwork</th>
         <th>Judul</th>
         <th>Artist</th>
         <th>Kategori</th>
@@ -52,7 +51,6 @@
       @forelse ($artwork as $artwork)
       <tr>
         <td>{{ $loop->iteration }}</td>
-        <td><img src="{{ asset('img_artworks/' . $artwork->foto)  }}" alt="" width="300px"></td>
         <td>{{ $artwork->judul }}</td>
         <td>{{ $artwork->artis}}</td>
         <td>{{ $artwork->kategori }}</td>
