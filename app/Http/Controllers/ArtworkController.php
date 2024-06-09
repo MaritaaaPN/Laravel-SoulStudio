@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artwork;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ArtworkController extends Controller
 {
@@ -121,5 +122,13 @@ class ArtworkController extends Controller
         File::delete('img_artworks/'.$artwork->foto);
         $artwork->delete();
         return redirect('/artwork');
+    }
+
+    public function cetak()
+    {
+        $artwork = Artwork::all();
+        //File::cetak('img_artworks/'.$artwork->foto);
+        $pdf = Pdf::loadview('artworks.artworks-cetak', compact('artwork'));
+        return $pdf->download('laporan-cetak-data-artwork.pdf');
     }
 }

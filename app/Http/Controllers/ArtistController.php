@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ArtistController extends Controller
 {
@@ -108,5 +109,12 @@ class ArtistController extends Controller
         $artist = Artist::find($id_artist);
         $artist->delete();
         return redirect('/artist');
+    }
+
+    public function cetak()
+    {
+        $artist = Artist::all();
+        $pdf = Pdf::loadview('artists.artists-cetak', compact('artist'));
+        return $pdf->download('laporan-cetak-data-artist.pdf');
     }
 }

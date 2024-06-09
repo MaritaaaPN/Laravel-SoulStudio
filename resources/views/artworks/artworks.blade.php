@@ -9,6 +9,9 @@ Artworks | Soul Admin
 <button type="button" class="btn btn-tambah">
 	<a href="/artwork/tambah">Tambah Data</a>
 </button>
+<button type="button" class="btn btn-tambah">
+        <a href="/artwork/cetak">Cetak Data</a>
+</button>
 <table class="table-data">
 <thead>
 <thead>
